@@ -25,7 +25,7 @@ function getAppropriatePair(aData) {
 	const iCapacityHive = 2023;
 	for (let i = 0; i < iDataLength; i++) {
 		let iDiff = iCapacityHive - aData[i];
-		if (iDiff in aData) {
+		if (aData.includes(iDiff)) {
 			return aData[i] + "\n" + iDiff;
 		}
 	}
