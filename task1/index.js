@@ -29,7 +29,7 @@ function getAppropriatePair(aData) {
 			return aData[i] + "\n" + iDiff;
 		}
 	}
-	throw "Didn't found a pair";
+	return -1;
 }
 
 try {
@@ -42,7 +42,8 @@ try {
 	if (aInputData.some(el => isNaN(el))) {
 		throw new Error("The file contains non-numeric values");
 	} else {
-		console.log(getAppropriatePair(aInputData));
+		const vResult = getAppropriatePair(aInputData);
+		console.log(vResult === -1 ? "Didn't found a pair" : vResult);
 	}
 } catch(err) {
 	console.error(err);
