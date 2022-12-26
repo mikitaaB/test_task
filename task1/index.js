@@ -21,12 +21,12 @@
 const fs = require('fs');
 
 function getAppropriatePair(aData) {
-	const iDataLength = aData.length;
 	const iCapacityHive = 2023;
-	for (let i = 0; i < iDataLength; i++) {
-		let iDiff = iCapacityHive - aData[i];
-		if (aData.includes(iDiff)) {
-			return aData[i] + "\n" + iDiff;
+	const oSet = new Set(aData);
+	for (let iItem of oSet) {
+		const iDiff = iCapacityHive - iItem;
+		if (oSet.has(iDiff)) {
+			return iItem + "\n" + iDiff;
 		}
 	}
 	return -1;
